@@ -1,5 +1,7 @@
 # Windows 接入：先定位阶段，再决定是否获取
 
+2026-09-22后续：Windows原生CI的Python 3.11/3.12均已通过真实ACL、中文路径、UTF-16材料与虚构SQLCipher数据库导入测试；[执行记录](https://github.com/Rion-Wu-tech/wechat-intelligence-hub/actions/runs/35638032153)。连接目录已去掉残留的POSIX权限判断，验证临时目录先设置ACL。此结果只验证相关读取/导入基础能力，不验证真实微信首次获取或完整日报。
+
 2026-09-22补充：`sqlcipher3 0.6.2`官方PyPI已提供Windows wheels，可先匹配当前解释器的位数和ABI，再做加密往返自检。Reader已兼容Windows常见BOM/UTF-16 JSON；不要把格式错误当成必须重取key。`diagnose --source`可用独立临时配置检验本人已有材料。
 
 另有[社区Windows安装分支](https://github.com/iversonzhang50-gif/wechat-intelligence-hub-windows)，其`docs/WINDOWS-ACCESS.md`明确不捆绑获取工具。安装、自检、材料验证及首次获取是不同验收项；主仓库尚未宣称Windows一键接入。
